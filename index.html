@@ -1,22 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Personal Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Универсальный Калькулятор 3-в-1</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Personal Calculator</h1>
+    <div class="app-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-target="calc-basic">Арифметика</button>
+            <button class="tab-btn" data-target="calc-discount">Скидки</button>
+            <button class="tab-btn" data-target="calc-grade">Оценки</button>
+        </div>
 
-<form id="calculatorForm">
-    <!-- Add input fields here -->
-</form>
+        <div id="calc-basic" class="calc-section active">
+            <div class="display-screen">
+                <div id="previous-operand" class="previous-operand"></div>
+                <div id="current-operand" class="current-operand">0</div>
+            </div>
+            <div class="keypad">
+                <button class="btn action-btn col-2" onclick="clearMath()">AC</button>
+                <button class="btn action-btn" onclick="deleteMath()">DEL</button>
+                <button class="btn op-btn" onclick="appendOperator('/')">÷</button>
+                
+                <button class="btn num-btn" onclick="appendNumber('7')">7</button>
+                <button class="btn num-btn" onclick="appendNumber('8')">8</button>
+                <button class="btn num-btn" onclick="appendNumber('9')">9</button>
+                <button class="btn op-btn" onclick="appendOperator('*')">×</button>
+                
+                <button class="btn num-btn" onclick="appendNumber('4')">4</button>
+                <button class="btn num-btn" onclick="appendNumber('5')">5</button>
+                <button class="btn num-btn" onclick="appendNumber('6')">6</button>
+                <button class="btn op-btn" onclick="appendOperator('-')">-</button>
+                
+                <button class="btn num-btn" onclick="appendNumber('1')">1</button>
+                <button class="btn num-btn" onclick="appendNumber('2')">2</button>
+                <button class="btn num-btn" onclick="appendNumber('3')">3</button>
+                <button class="btn op-btn" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn num-btn" onclick="appendNumber('.')">.</button>
+                <button class="btn num-btn" onclick="appendNumber('0')">0</button>
+                <button class="btn calc-btn col-2" onclick="calculateMath()">=</button>
+            </div>
+        </div>
 
-<div id="output">
-    <!-- Results will be displayed here -->
-</div>
+        <div id="calc-discount" class="calc-section">
+            <div class="input-group">
+                <label>Исходная цена:</label>
+                <input type="number" id="price-input" placeholder="Например, 5000">
+            </div>
+            <div class="input-group">
+                <label>Скидка (%):</label>
+                <input type="number" id="discount-input" placeholder="Например, 15">
+            </div>
+            <button class="btn calc-btn full-width" onclick="calculateDiscount()">Рассчитать скидку</button>
+            
+            <div class="result-box">
+                <p>Итоговая цена: <strong id="final-price">0</strong></p>
+                <p>Вы сэкономили: <span id="saved-amount" class="highlight-green">0</span></p>
+            </div>
+        </div>
 
-<script src="script.js"></script>
+        <div id="calc-grade" class="calc-section">
+            <div class="input-group">
+                <label>Полученные баллы:</label>
+                <input type="number" id="score-input" placeholder="Например, 45">
+            </div>
+            <div class="input-group">
+                <label>Максимум баллов:</label>
+                <input type="number" id="max-score-input" placeholder="Например, 50">
+            </div>
+            <button class="btn calc-btn full-width" onclick="calculateGrade()">Узнать оценку</button>
+            
+            <div class="result-box">
+                <p>Процент: <strong id="grade-percent">0%</strong></p>
+                <p>Ваша оценка: <span id="grade-letter" class="highlight-blue">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

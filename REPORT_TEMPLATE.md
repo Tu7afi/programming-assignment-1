@@ -1,118 +1,133 @@
-# Personal Assignment 1 Report Template
+1. Project Overview
 
-## 1. Project Overview
+Project Name:
+Universal Calculator 3 in 1
 
-**Project Name:**  
-(write your project name)
+What does your calculator do?
+This is a calculator with three functions in one program. It can do basic math operations, calculate discounts, and calculate grades. The user switches between modes using tabs.
 
-**What does your calculator do?**  
-(Explain in 2–3 sentences what problem you are solving and what you calculate.)
+2. Inputs
 
-Example:  
-This calculator calculates Body Mass Index (BMI) using weight and height. It also classifies the result into health categories.
+Arithmetic Mode
 
----
+Input Name              Unit   What it Represents
+Numbers                  —      Numbers the user enters
+Operators (+, -, *, /)   —      Math operation
 
-## 2. Inputs
+Why these inputs?
+Numbers and operators are needed to perform calculations like addition or division.
 
-List and explain all inputs you used.
+Discount Mode
 
-| Input Name | Unit | What it Represents |
-|---|---|---|
-| Example: Weight | kg | User body weight |
-| Example: Height | cm | User height |
+Input Name   Unit    What it Represents
+Price        Money   Original price 
+Discount     %       Discount percentage
 
-Explain in words:  
-(Why did you choose these inputs? Why are they important?)
+Why these inputs?
+We need the price and discount percent to calculate how much money the user saves and the final price.
 
----
+Grade Mode
 
-## 3. Process (Calculation Logic)
+Input Name   Unit     What it Represents
+Score        Points   Points received
+Max Score    Points   Maximum possible points
 
-**Formula or Calculation Used:**  
-(Write your formula or explain how calculation works.)
+Why these inputs?
+We need these values to calculate the percentage and determine the grade.
 
-Example:  
-BMI = weight / (height in meters)^2
+3. Process (Calculation Logic)
 
-**Steps:**
-1. Get input values from HTML  
-2. Convert values if needed (example: cm → meters)  
-3. Perform calculation  
-4. Store result in variable  
+Arithmetic
 
----
+The program:
 
-## 4. Conditional Logic (if / else)
+1. Gets numbers from buttons
+2. Saves them in variables
+3. Performs calculation depending on operator
+4. Shows result
 
-Explain how your program interprets the result.
+Example formulas:
 
-Example:
+result -- a + b
+result -- a - b
+result -- a * b
+result -- a / b
 
-If BMI < 18.5 → Underweight  
-If BMI 18.5 – 24.9 → Normal  
-If BMI ≥ 25 → Overweight  
+Discount
 
-Explain why you chose these ranges (if using real model, mention it).
+Saved money:
+Price x (Discount / 100)
 
----
+Final price:
+Price − Saved
 
-## 5. Output
+Grade
 
-What does your program show to the user?
+Percentage:
+(Score / Max Score) x 100
 
-- Calculated value  
-- Category or interpretation  
-- Personalized message (if used)  
-- Optional: binary output (if implemented)
+4. Conditional Logic (if / else)
 
----
+Arithmetic
 
-## 6. Edge Cases / Unusual Inputs
+If user divides by 0 → program shows “Error”.
 
-What happens if:
+Grade
 
-- User enters zero?  
-- User enters negative number?  
-- User leaves input empty?  
+90% or more -- 5
+75–89% -- 4
+50–74% -- 3
+Less than 50% -- 2
 
-Explain how your program handles this.
+I used this scale because it is common in schools.
 
----
+5. Output
 
-## 7. Optional Features (If You Added Any)
+The program shows:
+Arithmetic:
+Result of calculation
 
-Examples:
-- Binary conversion  
-- Extra calculations  
-- Extra UI features  
-- Validation messages  
+Discount:
+Final price
+Money saved
 
----
+Grade:
+Percentage
+Final grade
 
-## 8. How to Run the Project
+6. Edge Cases
 
-1. Download or clone repository  
-2. Open `index.html` in browser  
-3. Enter input values  
-4. Click calculate button  
+If user enters 0:
+Arithmetic works normally
+Division by 0 shows error
 
----
+If user leaves input empty:
+Program uses 0 or shows error (for max score)
 
-## 9. AI Usage (If Used)
+If user enters negative number:
+Program still calculates normally
 
-Did you use AI tools?  
-(Yes / No)
+7. Optional Features
 
-If yes, explain briefly:
-- What you asked AI for  
-- What you modified yourself  
-- What you fully understand now  
+Tab system (3 calculators in one)
+Dark modern design
+Input validation
+Rounded numbers (toFixed)
 
----
+8. How to Run
 
-## 10. Reflection
+1. Open index.html
+2. Choose calculator mode
+3. Enter numbers
+4. Click button
 
-What did you learn from this assignment?
+9. AI Usage
+Yes.
 
-(2–4 sentences)
+I used AI to help with structure and design.
+I changed some logic and understood how it works.
+Now I understand DOM, functions, and conditions better.
+
+10. Reflection
+
+I learned how to connect HTML, CSS, and JavaScript together. I practiced using conditions and functions. I also learned how to make one project with multiple features.

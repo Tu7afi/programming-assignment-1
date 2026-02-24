@@ -1,16 +1,147 @@
-/* Starter CSS to edit */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1e1e2f;
+    color: #fff;
 }
 
-h1 {
-    text-align: center;
+.app-container {
+    background-color: #2a2a40;
+    width: 340px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-#output {
-    margin-top: 20px;
+/* --- Вкладки (Табы) --- */
+.tabs {
+    display: flex;
+    background-color: #202030;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 0;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.9rem;
     font-weight: bold;
+    transition: 0.3s;
 }
+
+.tab-btn:hover { color: #fff; }
+.tab-btn.active {
+    color: #fff;
+    background-color: #2a2a40;
+    border-bottom: 3px solid #00ddff;
+}
+
+/* --- Секции --- */
+.calc-section {
+    display: none; /* Скрываем все секции по умолчанию */
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.calc-section.active {
+    display: block; /* Показываем только активную */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Стили для Арифметики --- */
+.display-screen {
+    background-color: #1a1a24;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: right;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.previous-operand { color: #888; font-size: 1rem; min-height: 1.2rem;}
+.current-operand { font-size: 2.5rem; color: #fff; word-break: break-all;}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.col-2 { grid-column: span 2; }
+.full-width { width: 100%; margin-top: 10px; }
+
+.num-btn { background-color: #3f3f5a; color: #fff; }
+.num-btn:hover { background-color: #4f4f7a; }
+
+.op-btn { background-color: #ff9f0a; color: #fff; }
+.op-btn:hover { background-color: #ffb53f; }
+
+.action-btn { background-color: #ff453a; color: #fff; }
+.action-btn:hover { background-color: #ff6961; }
+
+.calc-btn { background-color: #32d74b; color: #fff; font-weight: bold;}
+.calc-btn:hover { background-color: #4cd964; }
+
+/* --- Стили для Форм (Скидки и Оценки) --- */
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.input-group input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1a1a24;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input:focus { border-color: #00ddff; }
+
+.result-box {
+    margin-top: 20px;
+    background-color: #1a1a24;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.result-box p { margin: 5px 0; }
+.highlight-green { color: #32d74b; font-weight: bold; }
+.highlight-blue { color: #00ddff; font-weight: bold; }
